@@ -26,10 +26,10 @@ fprintf("t\t\ty\t\t\ty1\n");
 
 %Solve the ODE using Heun's Method
 for i = 1:numIterations
-    k1y = fy1(t(i), y(i), y1(i));
-    k1u = fy(t(i), y(i), y1(i));
-    k2y = fy1(t(i) + h, y(i)+ h*k1y, y1(i) + h*k1u);
-    k2u = fy(t(i) + h, y(i) + h*k1y, y1(i) + h*k1u);
+    k1y = fy(t(i), y(i), y1(i));
+    k1u = fy1(t(i), y(i), y1(i));
+    k2y = fy(t(i) + h, y(i)+ h*k1y, y1(i) + h*k1u);
+    k2u = fy1(t(i) + h, y(i) + h*k1y, y1(i) + h*k1u);
     
     y(i+1) = y(i) + h/2*(k1y + k2y);
     y1(i+1) = y1(i) + h/2*(k1u + k2u);
